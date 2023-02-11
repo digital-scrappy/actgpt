@@ -11,16 +11,13 @@ from strip_headers import strip_headers
 def main():
     random.seed(42)
 
-
-
     metadata = pl.read_csv(DATA_DIR / "metadata.csv")
     metadata = metadata.filter(pl.col("language") == "['de']")
 
-    #train test split
+    # train test split
     test_ids = []
     val_ids = []
     train_ids = []
-
 
     for author in AUTHORS:
         author_ids = metadata.filter((pl.col("author") == author))["id"].to_list()
@@ -28,11 +25,9 @@ def main():
 
         train_ids += author_ids[:-2]
         test_ids += [author_ids[-2]]
-        val_ids += [author_ids[-1]] 
+        val_ids += [author_ids[-1]]
 
-    splits = {"train.txt" : train_ids,
-        "val.txt" : val_ids,
-        "test.txt" : test_ids}
+    splits = {"train.txt": train_ids, "val.txt": val_ids, "test.txt": test_ids}
 
     for name, ids in splits.items():
         with open(DATA_DIR / name, "w") as out_f:

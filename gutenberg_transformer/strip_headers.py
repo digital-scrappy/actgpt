@@ -5,10 +5,12 @@ Apache-2.0 License
 
 import os
 
-from text import TEXT_END_MARKERS
-from text import TEXT_START_MARKERS
-from text import LEGALESE_END_MARKERS
-from text import LEGALESE_START_MARKERS
+from text import (
+    LEGALESE_END_MARKERS,
+    LEGALESE_START_MARKERS,
+    TEXT_END_MARKERS,
+    TEXT_START_MARKERS,
+)
 
 
 def strip_headers(text):
@@ -68,28 +70,29 @@ def strip_headers(text):
 
 
 def _main():
-    """Command line interface to the module.
-    """
+    """Command line interface to the module."""
     from argparse import ArgumentParser, FileType
+
     from gutenberg import Error
     from gutenberg._util.os import reopen_encoded
 
-    parser = ArgumentParser(description='Remove headers and footers from a '
-                                        'Project Gutenberg text')
-    parser.add_argument('infile', type=FileType('r'))
-    parser.add_argument('outfile', type=FileType('w'))
+    parser = ArgumentParser(
+        description="Remove headers and footers from a " "Project Gutenberg text"
+    )
+    parser.add_argument("infile", type=FileType("r"))
+    parser.add_argument("outfile", type=FileType("w"))
     args = parser.parse_args()
 
     try:
-        with reopen_encoded(args.infile, 'r', 'utf8') as infile:
+        with reopen_encoded(args.infile, "r", "utf8") as infile:
             text = infile.read()
             clean_text = strip_headers(text)
 
-        with reopen_encoded(args.outfile, 'w', 'utf8') as outfile:
+        with reopen_encoded(args.outfile, "w", "utf8") as outfile:
             outfile.write(clean_text)
     except Error as error:
         parser.error(str(error))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     _main()
