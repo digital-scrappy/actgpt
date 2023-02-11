@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "gutenberg-transformer"
+version = "0.1.0"
+description = "hi "
+authors = ["Jakob Hauser <jakob.e.hauser@protonmail.com>"]
+readme = "README.org"
+packages = [{include = "gutenberg_transformer"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyright = "^1.1.267"
+jupyterlab = "^3.6.1"
+torch = "^1.13.1"
+polars = "^0.16.4"
+gutenbergpy = "^0.3.4"
+tiktoken = "^0.2.0"
+update = "^0.0.1"
+tokenizers = "^0.13.2"
+numpy = "^1.24.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
