@@ -7,7 +7,7 @@ readme = "README.org"
 packages = [{include = "gutenberg_transformer"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 pyright = "^1.1.267"
 jupyterlab = "^3.6.1"
 torch = "^1.13.1"
