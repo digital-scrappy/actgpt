@@ -38,9 +38,7 @@ def main():
                 except FileNotFoundError:
                     continue
                 text = strip_headers(raw_text)
-                out_f.write("[SOS]")
                 out_f.write(text)
-                out_f.write("[EOS]")
 
 
 if __name__ == "__main__":
