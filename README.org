@@ -1,1 +1,1 @@
-*Important* a lot of the NN code has been taken/written by me after/while watching karpathys video on LLMs. 
+*Important* a lot of the NN code has been taken/written by me after/while watching karpathy's video on LLMs. 
