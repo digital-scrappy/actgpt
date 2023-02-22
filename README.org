@@ -1,0 +1,1 @@
+*Important* a lot of the NN code is taken from karpathys video on LLMs. 
